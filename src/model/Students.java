@@ -1,6 +1,11 @@
-package Model;
-
+package model;
+/**
+ * Clase encargada de definir el objeto estudiante
+ * @author Jhon Erick Santos
+ * @version 1.0
+ */
 public class Students {
+    /**Atributos*/
     private String name;
     private String lastName;
     private String dataOfBirth;
@@ -10,9 +15,8 @@ public class Students {
     private long phoneNumber;
     private String academicProgram;
 
-    public Students(String name, String lastName, String dataOfBirth,
-                    String institutionalEmail, String personalEmail,
-                    long phoneNumberCell, long phoneNumber, String academicProgram)
+    /**Metodo Constructor para definir el objeto*/
+    public Students(String name, String lastName, String dataOfBirth, String institutionalEmail, String personalEmail, long phoneNumberCell, long phoneNumber, String academicProgram)
                     {
         this.name = name;
         this.lastName = lastName;
@@ -90,16 +94,16 @@ public class Students {
 
     @Override
     public String toString() {
-        return "Students{" +
-                "name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", dataOfBirth='" + dataOfBirth + '\'' +
-                ", institutionalEmail='" + institutionalEmail + '\'' +
-                ", personalEmail='" + personalEmail + '\'' +
-                ", phoneNumberCell=" + phoneNumberCell +
-                ", phoneNumber=" + phoneNumber +
-                ", academicProgram='" + academicProgram + '\'' +
-                '}';
+        return  "Nombres: " + name + '\n' +
+                "Apellidos: " + lastName + '\n' +
+                "Fecha nacimiento: " + dataOfBirth + '\n' +
+                "Correo institucional: " + institutionalEmail + '\n' +
+                "Correo personal: " + personalEmail + '\n' +
+                "Número de teléfono celular: " + phoneNumberCell + '\n'+
+                "Número de teléfono fijo: " + phoneNumber + '\n' +
+                "Programa académico: " + academicProgram ;
     }
+
+
 }
 
