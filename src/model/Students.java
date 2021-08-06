@@ -1,10 +1,13 @@
 package model;
+
+import java.io.Serializable;
+
 /**
  * Clase encargada de definir el objeto estudiante
  * @author Jhon Erick Santos
  * @version 1.0
  */
-public class Students {
+public class Students implements Serializable {
     /**Atributos*/
     private String name;
     private String lastName;
