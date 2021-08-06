@@ -100,18 +100,20 @@ public class StudentsDAO {
 
     public boolean modifyStudent(String name, String lastName, String dataOfBirth, String institutionalEmail,
                                   String personalEmail, long phoneNumberCell, long phoneNumber, String academicProgram,
-                                  ArrayList<Students> studentList, File file) {
+                                 ArrayList<Students> studentList, File file) {
 
         Students found = searchStudent(institutionalEmail, studentList);
         try {
             if (found != null) {
                 deleteStudent(institutionalEmail, studentList, file);
-                found.setName();
-                encontrada.setEdad(edad);
-                studentList.add(encontrada);
+                found.setPersonalEmail(personalEmail);
+                found.setPhoneNumber(phoneNumber);
+                found.setPhoneNumberCell(phoneNumberCell);
+                found.setAcademicProgram(academicProgram);
+                studentList.add(found);
                 file.delete();
                 file.createNewFile();
-                archivo.escribirArchivo(studentList, file);
+                archive.writeFile(studentList, file);
                 return true;
             } else {
                 return false;

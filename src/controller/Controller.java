@@ -47,7 +47,7 @@ public class Controller {
                     searchStudent();
                     break;
                 case 3:
-                    modifyStudent();
+                    modifyStudents();
                     break;
                 case 4:
                     removeStudent();
@@ -57,8 +57,9 @@ public class Controller {
                     break;
                 case 6:
                     view.showInformation("Hasta pronto");
-                //default:
-                //    view.showInformation("Error: Opción no valida");
+                    break;
+                default:
+                    view.showInformation("Error: Opción no valida");
             }
         }while(option !=6);
     }
@@ -83,7 +84,7 @@ public class Controller {
         fi = view.readDataLong("Ingresar número fijo:");
         pr = view.readDataString("Ingresar programa:");
 
-        if (institute.getStudentDao().addStudent(n,a,fn,ci,cp,cel,fi,pr, institute.getStudentList())){
+        if (institute.getStudentDao().addStudent(n,a,fn,ci,cp,cel,fi,pr, institute.getStudentList(), institute.getFile())){
             view.showInformation("Se agregó el estudiante\n");
         }else{
             view.showInformation("No ha sido posible agregar al estudiante");
@@ -111,7 +112,7 @@ public class Controller {
      * Método para leer la información de un estudiante y actualizar
      * Llama la función buscar estudiante de la clase DAO
      */
-    public void modifyStudent(){
+    public void modifyStudents(){
         String n,a,fn,ci,cp,pr;
         long cel,fi;
         n=a=fn=ci=cp=pr = "";
@@ -127,8 +128,7 @@ public class Controller {
             cel = view.readDataLong("Ingresar número de celular:");
             fi = view.readDataLong("Ingresar número fijo:");
             pr = view.readDataString("Ingresar programa:");
-            institute.getStudentDao().deleteStudent(ci, institute.getStudentList());
-            institute.getStudentDao().addStudent(n,a,fn,ci,cp,cel,fi,pr, institute.getStudentList());
+            institute.getStudentDao().modifyStudent(n,a,fn,ci,cp,cel,fi,pr, institute.getStudentList(), institute.getFile());
             view.showInformation("Se modificó el estudiante\n");
         }else{
             view.showInformation("El estudiante no se encuentra registrado en el instituto");
@@ -143,7 +143,7 @@ public class Controller {
         String ci = "";
         view.showInformation("Eliminar estudiante");
         ci = view.readDataString("Ingresar correo institucional:");
-        if(institute.getStudentDao().deleteStudent(ci, institute.getStudentList())){
+        if(institute.getStudentDao().deleteStudent(ci, institute.getStudentList(), institute.getFile())){
             view.showInformation("Se eliminó el estudiante\n");
         }else{
             view.showInformation("El estudiante no se encuentra registrado en el instituto");
@@ -156,7 +156,7 @@ public class Controller {
      */
     public void showDirectory(){
         view.showInformation("El directorio de los estudiantes\n");
-        view.showInformation(institute.getStudentDao().showStudent(institute.getStudentList()));
+        view.showInformation(institute.getStudentDao().showStudent(institute.getFile()));
     }
 
 }

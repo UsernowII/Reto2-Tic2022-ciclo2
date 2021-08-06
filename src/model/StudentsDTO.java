@@ -13,6 +13,7 @@ public class StudentsDTO {
     private ArrayList<Students> studentList;
     private StudentsDAO studentDao;
     private File file = new File("data/datos_estudiantes.dat");
+    //private File file = new File("C:\\Users\\Usernow\\Documents\\G46_Archivos\\newfile.dat");
     private Archive archive;
 
 
@@ -41,5 +42,21 @@ public class StudentsDTO {
 
     public void setStudentDao(StudentsDAO studentDao) {
         this.studentDao = studentDao;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
+    public Archive getArchive() {
+        return archive;
+    }
+
+    public void setArchive(Archive archive) {
+        this.archive = archive;
     }
 }
