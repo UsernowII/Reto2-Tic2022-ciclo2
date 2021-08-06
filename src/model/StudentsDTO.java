@@ -1,7 +1,7 @@
 package model;
 
-import persistence.Archive;
-import persistence.StudentsDAO;
+import model.persistence.Archive;
+import model.persistence.StudentsDAO;
 
 import java.io.File;
 import java.util.ArrayList;
